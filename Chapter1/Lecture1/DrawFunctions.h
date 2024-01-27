@@ -10,7 +10,7 @@ namespace jm
 	using vec2 = Vector2<float>;
 	using vec3 = Vector3<float>;
 
-	float getRadian(const float& degree);
+	float getRadian(const float& degree); //대부부 라디언을 사용함 디그리를 라디언으로 변환해주는 함수
 
 	// Various primitives
 	void drawPoint(const RGB& color, const vec2& position, const float & size); // use drawFilledCircle instead
@@ -35,7 +35,7 @@ namespace jm
 	
 	void drawGrid(const RGB& color, const float& dx);
 
-	// Affine transformations
+	// Affine transformations 이동이나 회전 등 애니메이션에서 사용
 	void beginTransformation();
 	void endTransformation();
 	void translate(const vec2& dx);
