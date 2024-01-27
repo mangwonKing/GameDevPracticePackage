@@ -35,7 +35,7 @@ namespace jm
 		// control options 키보드 입력 
 		std::map<int, bool> key_status;  // key_id, is_pressed
 		std::map<int, bool> mbtn_status; // mouse_button_id, is_pressed
-		bool draw_grid = false; // 키 입력에 따라 true
+		bool draw_grid = true; // 키 입력에 따라 true
 
 	public:
 		Game2D()
