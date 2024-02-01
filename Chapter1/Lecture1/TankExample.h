@@ -8,7 +8,7 @@ namespace jm
 	{
 	public:
 		vec2 center = vec2(0.0f, 0.0f);
-		//vec2 direction = vec2(1.0f, 0.0f, 0.0f);
+		//vec2 direction = vec2(1.0f, 0.0f, 0.0f); //회전기능 있을때 필요
 
 		void draw()
 		{
@@ -29,7 +29,7 @@ namespace jm
 	{
 	public:
 		vec2 center = vec2(0.0f, 0.0f);
-		vec2 velocity = vec2(0.0f, 0.0f);
+		vec2 velocity = vec2(0.0f, 0.0f); // 속도
 
 		void draw()
 		{
@@ -43,6 +43,7 @@ namespace jm
 		void update(const float& dt)
 		{
 			center += velocity * dt;
+			draw();
 		}
 	};
 
@@ -51,7 +52,8 @@ namespace jm
 	public:
 		MyTank tank;
 
-		MyBullet *bullet = nullptr;
+		MyBullet *bullet[10]; //발사 될 때만 있어서 포인터
+		int ammo = 0;
 		//TODO: allow multiple bullets
 		//TODO: delete bullets when they go out of the screen
 
@@ -62,32 +64,46 @@ namespace jm
 
 		~TankExample()
 		{
-			if(bullet != nullptr) delete bullet;
+			for (int i = 0; i < ammo; i++)
+			{
+				if (bullet[i] != nullptr) delete bullet;
+			}
+			//if(bullet != nullptr) delete bullet;
 		}
 
 		void update() override
 		{
 			// move tank
 			if (isKeyPressed(GLFW_KEY_LEFT))	tank.center.x -= 0.5f * getTimeStep();
-			if (isKeyPressed(GLFW_KEY_RIGHT))	tank.center.x += 0.5f * getTimeStep();
-			if (isKeyPressed(GLFW_KEY_UP))		tank.center.y += 0.5f * getTimeStep();
-			if (isKeyPressed(GLFW_KEY_DOWN))	tank.center.y -= 0.5f * getTimeStep();
-
+			if (isKeyPressed(GLFW_KEY_RIGHT)) tank.center.x += 0.5f * getTimeStep();
+			if (isKeyPressed(GLFW_KEY_UP)) tank.center.y += 0.5f * getTimeStep();
+			if (isKeyPressed(GLFW_KEY_DOWN)) tank.center.y -= 0.5f * getTimeStep();
+			
 			// shoot a cannon ball
 			if (isKeyPressedAndReleased(GLFW_KEY_SPACE))
 			{
-				bullet = new MyBullet;
-				bullet->center = tank.center;
-				bullet->center.x += 0.2f;
-				bullet->center.y += 0.1f;
-				bullet->velocity = vec2(2.0f, 0.0f);
+				bullet[ammo] = new MyBullet();
+				bullet[ammo]->center = tank.center;
+				bullet[ammo]->center.x += 0.2f;
+				bullet[ammo]->center.y += 0.1f;
+				bullet[ammo]->velocity = vec2(2.0f, 0.0f);
+				ammo++;
+				
+			}
+			for (int i = 0; i < ammo; i++)
+			{
+				if (bullet[i] != nullptr)bullet[i]->update(getTimeStep());
 			}
 
-			if (bullet != nullptr) bullet->update(getTimeStep());
+			//if (bullet != nullptr) bullet->update(getTimeStep());
 
 			// rendering
 			tank.draw();
-			if (bullet != nullptr) bullet->draw();
+			for (int i = 0; i < ammo; i++)
+			{
+				if (bullet[i] != nullptr) bullet[i]->draw();
+			}
+			
 		}
 	};
 }
