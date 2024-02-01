@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Game2D.h"
-
+#include <iostream>
 namespace jm
 {
 	class MyTank
@@ -30,7 +30,7 @@ namespace jm
 	public:
 		vec2 center = vec2(0.0f, 0.0f);
 		vec2 velocity = vec2(0.0f, 0.0f); // 속도
-
+		int tick = 0;
 		void draw()
 		{
 			beginTransformation();
@@ -40,10 +40,17 @@ namespace jm
 			endTransformation();
 		}
 
-		void update(const float& dt)
+		bool update(const float& dt)
 		{
 			center += velocity * dt;
-			draw();
+ 			draw();
+			tick++;
+			if (tick > 100)
+			{
+				delete this;
+				return false;
+			}
+			return true;
 		}
 	};
 
@@ -52,7 +59,7 @@ namespace jm
 	public:
 		MyTank tank;
 
-		MyBullet *bullet[10]; //발사 될 때만 있어서 포인터
+		MyBullet *bullet[100]; //발사 될 때만 있어서 포인터
 		int ammo = 0;
 		//TODO: allow multiple bullets
 		//TODO: delete bullets when they go out of the screen
@@ -92,11 +99,18 @@ namespace jm
 			}
 			for (int i = 0; i < ammo; i++)
 			{
-				if (bullet[i] != nullptr)bullet[i]->update(getTimeStep());
+				if (bullet[i] != nullptr)
+				{
+					if (!bullet[i]->update(getTimeStep()))
+					{
+						ammo--;
+					}
+					
+				}
 			}
 
 			//if (bullet != nullptr) bullet->update(getTimeStep());
-
+			std::cout << ammo << "개 \n";
 			// rendering
 			tank.draw();
 			for (int i = 0; i < ammo; i++)
