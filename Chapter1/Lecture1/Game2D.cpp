@@ -190,17 +190,17 @@ namespace jm
 	{
 		double x_pos, y_pos;
 		glfwGetCursorPos(glfw_window, &x_pos, &y_pos);
-		// Note that (0, 0) is left up corner. 
-		// This is different from our screen coordinates.
+		// Note that (0, 0) is left up corner.  좌측 상단
+		// This is different from our screen coordinates. 화면좌표계와 다름
 		// 0 <= x <= width - 1
 		// height - 1 >= y >= 0 
 
 		if (screen_coordinates) // assumes width >= height
 		{
-			// upside down y direction
+			// upside down y direction 뒤집기
 			y_pos = height - y_pos - 1; // 0 <= y <= height - 1
 
-			// rescale and translate zero to center
+			// rescale and translate zero to center 가운데를 제로로 만들어주는 과정 ,, 이해안되면 일단 쓰고 나중에 이해하자(그래픽스를 한다거나)
 			y_pos = y_pos / (height - 1); //  0.0 <= y <= 1.0
 			y_pos = y_pos * 2.0;		  //  0.0 <= y <= 2.0
 			y_pos = y_pos - 1.0;		  // -1.0 <= y <= 1.0
