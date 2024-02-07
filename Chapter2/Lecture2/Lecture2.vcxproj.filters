@@ -11,6 +11,8 @@
     <ClCompile Include="Engine\Timer.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="Circle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
@@ -48,5 +50,7 @@
     <ClInclude Include="Examples\PrimitivesGallery.h">
       <Filter>Examples</Filter>
     </ClInclude>
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Circle.h" />
   </ItemGroup>
 </Project>
