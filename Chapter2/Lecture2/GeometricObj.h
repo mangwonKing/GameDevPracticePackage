@@ -12,15 +12,19 @@ namespace jm {
 			_size = size;
 		}
 
-		/*void draw()
+		void draw()
 		{
 			beginTransformation();
 			{
 				translate(_pos);
-				drawFilledCircle(_colors, _size);
+				drawGeometricObj();
 			}
 			endTransformation();
-		}*/
+		}
+		virtual void drawGeometricObj() const
+		{
+
+		}
 	
 	public:
 		vec2 _pos;

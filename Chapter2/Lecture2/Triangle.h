@@ -5,14 +5,10 @@ namespace jm {
 	class Triangle : public GeometricObj
 	{
 	public:
-		void draw()
+
+		void drawGeometricObj()const override
 		{
-			beginTransformation();
-			{
-				translate(_pos);
-				drawFilledTriangle(_colors, _size);
-			}
-			endTransformation();
+			drawFilledTriangle(_colors, _size);
 		}
 	};
 	

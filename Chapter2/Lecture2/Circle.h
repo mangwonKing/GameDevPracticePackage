@@ -5,14 +5,9 @@ namespace jm {
 	class Circle : public GeometricObj
 	{
 	public:
-		void draw()
+		void drawGeometricObj() const override
 		{
-			beginTransformation();
-			{
-				translate(_pos);
-				drawFilledCircle(_colors, _size);
-			}
-			endTransformation();
+			drawFilledCircle(_colors, _size);
 		}
 	};
 }
