@@ -5,11 +5,10 @@ namespace jm {
 	class GeometricObj
 	{
 	public:
-		void init(vec2 pos , RGB colors , float size)
+		void init(const vec2& pos ,const RGB& colors)
 		{
 			_pos = pos;
 			_colors = colors;
-			_size = size;
 		}
 
 		void draw()
@@ -29,7 +28,7 @@ namespace jm {
 	public:
 		vec2 _pos;
 		RGB _colors;
-		float _size;
+		
 
 	};
 }

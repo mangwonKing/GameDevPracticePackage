@@ -5,10 +5,17 @@ namespace jm {
 	class Circle : public GeometricObj
 	{
 	public:
+		void init(const vec2& pos, const RGB& colors, const float& size)
+		{
+			GeometricObj::init(pos, colors);
+			_size = size;
+		}
 		void drawGeometricObj() const override
 		{
 			drawFilledCircle(_colors, _size);
 		}
+	public:
+		float _size;
 	};
 }
 
