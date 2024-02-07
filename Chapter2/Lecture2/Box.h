@@ -6,9 +6,9 @@ namespace jm {
 	{
 	public:
 		void init(const vec2& pos, const RGB& colors, 
-			const float& width, const float& height)
+			const float& width, const float& height, const float& angle)
 		{
-			GeometricObj::init(pos,colors);
+			GeometricObj::init(pos,colors,angle);
 			_width = width;
 			_height = height;
 		}

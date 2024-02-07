@@ -5,10 +5,11 @@ namespace jm {
 	class GeometricObj
 	{
 	public:
-		void init(const vec2& pos ,const RGB& colors)
+		void init(const vec2& pos ,const RGB& colors, const float& angle = 0)
 		{
 			_pos = pos;
 			_colors = colors;
+			_angle = angle;
 		}
 
 		void draw()
@@ -16,6 +17,7 @@ namespace jm {
 			beginTransformation();
 			{
 				translate(_pos);
+				rotate(_angle);
 				drawGeometricObj();
 			}
 			endTransformation();
@@ -25,7 +27,7 @@ namespace jm {
 	public:
 		vec2 _pos;
 		RGB _colors;
-		
+		float _angle;
 
 	};
 }
