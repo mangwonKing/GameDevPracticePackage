@@ -12,7 +12,7 @@ namespace jm {
 			_size = size;
 		}
 
-		void draw()
+		/*void draw()
 		{
 			beginTransformation();
 			{
@@ -20,7 +20,7 @@ namespace jm {
 				drawFilledCircle(_colors, _size);
 			}
 			endTransformation();
-		}
+		}*/
 	
 	public:
 		vec2 _pos;
