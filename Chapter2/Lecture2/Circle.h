@@ -10,7 +10,7 @@ namespace jm {
 			GeometricObj::init(pos, colors);
 			_size = size;
 		}
-		void drawGeometricObj() const override
+		void drawGeometricObj() override
 		{
 			drawFilledCircle(_colors, _size);
 		}

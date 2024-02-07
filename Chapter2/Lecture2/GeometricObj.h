@@ -20,10 +20,7 @@ namespace jm {
 			}
 			endTransformation();
 		}
-		virtual void drawGeometricObj() const
-		{
-
-		}
+		virtual void drawGeometricObj() = 0;
 	
 	public:
 		vec2 _pos;

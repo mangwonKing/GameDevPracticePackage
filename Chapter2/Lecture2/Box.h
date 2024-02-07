@@ -12,7 +12,7 @@ namespace jm {
 			_width = width;
 			_height = height;
 		}
-		void drawGeometricObj() const override
+		void drawGeometricObj() override
 		{
 			drawFilledBox(_colors, _width, _height);
 		}
