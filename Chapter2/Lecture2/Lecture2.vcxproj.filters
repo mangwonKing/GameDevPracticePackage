@@ -13,6 +13,7 @@
     </ClCompile>
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="GeometricObj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">
@@ -52,5 +53,6 @@
     </ClInclude>
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="GeometricObj.h" />
   </ItemGroup>
 </Project>

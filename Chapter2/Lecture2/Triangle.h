@@ -1,23 +1,10 @@
 #pragma once
-#include "Game2D.h"
+#include "GeometricObj.h"
 
 namespace jm {
-	class Triangle
+	class Triangle : public GeometricObj
 	{
 	public:
-		void draw()
-		{
-			beginTransformation();
-			{
-				translate(_pos);
-				drawFilledTriangle(_colors, _size);
-			}
-			endTransformation();
-		}
-
-		vec2 _pos;
-		RGB _colors;
-		float _size;
 
 	};
 	
