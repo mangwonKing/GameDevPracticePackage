@@ -5,6 +5,15 @@ namespace jm {
 	class Box : public GeometricObj
 	{
 	public:
+		Box(const vec2& pos, const RGB& colors, const float& width, const float& height,
+			const float& angle = 0)
+		{
+			init(pos, colors, width,height, angle);
+		}
+		~Box()
+		{
+			std::cout << "box ¼Ò¸ê\n";
+		}
 		void init(const vec2& pos, const RGB& colors, 
 			const float& width, const float& height, const float& angle)
 		{

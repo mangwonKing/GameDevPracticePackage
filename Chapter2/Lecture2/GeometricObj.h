@@ -5,6 +5,8 @@ namespace jm {
 	class GeometricObj
 	{
 	public:
+		virtual ~GeometricObj()
+		{}
 		void init(const vec2& pos ,const RGB& colors, const float& angle = 0)
 		{
 			_pos = pos;
