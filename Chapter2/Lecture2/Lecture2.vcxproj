@@ -26,6 +26,7 @@
     <ClCompile Include="Engine\Timer.cpp" />
     <ClCompile Include="GeometricObj.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Star.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +42,7 @@
     <ClInclude Include="Engine\Vector3.h" />
     <ClInclude Include="Examples\PrimitivesGallery.h" />
     <ClInclude Include="GeometricObj.h" />
+    <ClInclude Include="Star.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

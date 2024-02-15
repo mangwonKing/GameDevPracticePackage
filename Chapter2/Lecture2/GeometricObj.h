@@ -25,6 +25,12 @@ namespace jm {
 			endTransformation();
 		}
 		virtual void drawGeometricObj() = 0;
+		
+		static GeometricObj* makeTriangle(const vec2& pos, const RGB& colors, const float& size);
+		static GeometricObj* makeCircle(const vec2& pos, const RGB& colors, const float& size,
+			const float& angle = 0);
+		static GeometricObj* makeBox(const vec2& pos, const RGB& colors, const float& width, const float& height);
+		static GeometricObj* makeStar(const vec2& pos, const RGB& colors, const float& outer, const float& inner);
 	
 	public:
 		vec2 _pos;

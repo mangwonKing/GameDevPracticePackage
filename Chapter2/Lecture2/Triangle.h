@@ -5,19 +5,17 @@ namespace jm {
 	class Triangle : public GeometricObj
 	{
 	public:
-		Triangle(const vec2& pos, const RGB& colors, const float& size,
-			const float& angle)
+		Triangle(const vec2& pos, const RGB& colors, const float& size)
 		{
-			init(pos,colors,size,angle);
+			init(pos,colors,size);
 		}
 		~Triangle()
 		{
 			std::cout << "triangle ¼Ò¸ê\n";
 		}
-		void init(const vec2& pos, const RGB& colors, const float& size,
-			const float& angle)
+		void init(const vec2& pos, const RGB& colors, const float& size)
 		{
-			GeometricObj::init(pos, colors,angle);
+			GeometricObj::init(pos, colors);
 			_size = size;
 		}
 		void drawGeometricObj() override
