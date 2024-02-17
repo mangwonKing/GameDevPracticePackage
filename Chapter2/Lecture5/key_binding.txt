@@ -1,8 +1,8 @@
-SPACE shoot
 W move_up
-S move_down
-A move_left
-D move_right
+A move_down
+S move_right
+D move_left
+
 
 
 

@@ -134,12 +134,31 @@ namespace jm
 		TankExample()
 			: Game2D("This is my digital canvas!", 1024, 768, false, 2)
 		{
-			//key mapping
+			std::vector<char> key;
+			int upKey, downKey, rightKey, leftKey;
 
-			input_handler.key_command_map[GLFW_KEY_UP] = new UpCommand;
-			input_handler.key_command_map[GLFW_KEY_DOWN] = new DownCommand;
-			input_handler.key_command_map[GLFW_KEY_RIGHT] = new RightCommand;
-			input_handler.key_command_map[GLFW_KEY_LEFT] = new LeftCommand;
+			std::ifstream keyBind;
+			keyBind.open("key_binding.txt");
+			if (keyBind.is_open())
+			{
+				while (!keyBind.eof())
+				{
+					std::string str;
+					getline(keyBind, str);
+					key.push_back(str[0]);
+				}
+				keyBind.close();
+			}
+			upKey = key[0];
+			downKey = key[1];
+			rightKey = key[2];
+			leftKey = key[3];
+			//key mapping
+			
+			input_handler.key_command_map[upKey] = new UpCommand;
+			input_handler.key_command_map[downKey] = new DownCommand;
+			input_handler.key_command_map[rightKey] = new RightCommand;
+			input_handler.key_command_map[leftKey] = new LeftCommand;
 		}
 
 		~TankExample()
